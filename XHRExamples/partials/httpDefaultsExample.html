@@ -1,0 +1,81 @@
+<div class="container-fluid" ng-controller="HttpDefaultsController as httpCtrl">
+	<div class="row">
+		<div class="col-sm-12">
+			<h6 class="ctrlTest">HttpCtrl : {{httpCtrl.test}}</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<form novalidate name="loginForm" ng-submit="httpCtrl.submitLoginForm(loginForm)">
+				<div class="row form-group"> <!--  Container Begin -->
+					<div class="col-sm-12">
+						<div class="row"> <!-- Username Begin -->
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-4">
+										<h5><b>Username: </b></h5>
+									</div>
+									<div class="col-sm-8">
+										<input type="text"
+											   class="form-control"
+											   name="username"
+											   ng-model="httpCtrl.user.username"
+											   ng-class="{errorBorder: loginForm.$invalid && loginForm.$submitted}"
+											   placeholder="--username--"
+											   ng-required="true"
+											   ng-minlength="3"/>
+									</div>
+								</div>
+								<div class="row errorMsg" ng-show="loginForm.$invalid && loginForm.$submitted">
+									<div class="col-sm-8 col-sm-offset-4">
+										<span ng-if="loginForm.username.$error.required">Please enter a username.</span>
+									</div>
+									<div class="col-sm-12 col-sm-offset-4">
+										<span ng-if="loginForm.username.$error.minlength">Must be longer than 2 characters</span>
+									</div>
+								</div>
+							</div>
+						</div> <!-- Username End -->
+						<div class="row"> <!-- Password Begin -->
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-4">
+										<h5><b>Password: </b></h5>
+									</div>
+									<div class="col-sm-8">
+										<input type="password"
+											   class="form-control"
+											   name="password"
+											   ng-model="httpCtrl.user.password"
+											   ng-class="{errorBorder: loginForm.$invalid && loginForm.$submitted}"
+											   placeholder="--password--"
+											   ng-required="true"
+											   ng-minlength="3"/>
+									</div>
+								</div>
+								<div class="row errorMsg" ng-show="loginForm.$invalid && loginForm.$submitted">
+									<div class="col-sm-8 col-sm-offset-4" ng-if="loginForm.password.$error.required">
+										<span>Please enter a password.</span>
+									</div>
+									<div class="col-sm-8 col-sm-offset-4" ng-if="loginForm.password.$error.minlength">
+										<span>Must be longer than 2 characters.</span>
+									</div>
+								</div>
+							</div>
+						</div> <!-- Password End -->
+					</div>
+				</div> <!-- Container End -->
+				<div class="row">
+					<div class="col-sm-12">
+						<input type="submit" class="btn btn-primary btn-block" value="Login"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 text-center">
+			<h3 ng-bind="httpCtrl.message"></h3>
+		</div>
+	</div>
+</div>

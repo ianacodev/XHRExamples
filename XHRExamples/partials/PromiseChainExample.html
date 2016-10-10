@@ -1,0 +1,72 @@
+<div class="container-fluid" ng-controller="PromiseChainController as promiseCtrl">
+	<div class="row">
+		<div class="col-sm-12">
+			<h6 class="ctrlTest">PromiseCtrl : {{promiseCtrl.test}}</h6>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="col-sm-12">
+			<div class="row">
+				<div class="col-sm-1">
+					<span ng-show="promiseCtrl.promiseOne">
+						<i class="fa fa-check fa-lg iconSuccess"></i>
+					</span>
+					<span ng-hide="promiseCtrl.promiseOne">
+						<i class="fa fa-times fa-lg iconFail"></i>
+					</span>
+				</div>
+				<div class="col-sm-4">
+					<h5><b>Promise 1: </b></h5>	
+				</div>
+				<div class="col-sm-7">
+					<span ng-bind="promiseCtrl.note1.author"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1">
+					<span ng-show="promiseCtrl.promiseTwo">
+						<i class="fa fa-check fa-lg iconSuccess"></i>
+					</span>
+					<span ng-hide="promiseCtrl.promiseTwo">
+						<i class="fa fa-times fa-lg iconFail"></i>
+					</span>
+				</div>
+				<div class="col-sm-4">
+					<h5><b>Proimse 2: </b></h5>
+				</div>
+				<div class="col-sm-7">
+					<span ng-bind="promiseCtrl.note2.author"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-1">
+					<span ng-show="promiseCtrl.promiseThree">
+						<i class="fa fa-check fa-lg iconSuccess"></i>
+					</span>
+					<span ng-hide="promiseCtrl.promiseThree">
+						<i class="fa fa-times fa-lg iconFail"></i>
+					</span>
+				</div>
+				<div class="col-sm-4">
+					<h5><b>Promise 3: </b></h5>
+				</div>
+				<div class="col-sm-7">
+					<span ng-bind="promiseCtrl.note3.author"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5">
+					<h5><b>Final Response: </b></h5>
+				</div>
+				<div class="col-sm-7">
+					<span ng-bind="promiseCtrl.finalResponse"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<button type="button" class="btn btn-primary btn-block" ng-click="promiseCtrl.runTest()">Run Test</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container-fluid" ng-controller="XHRGetController as getCtrl">
+	<div class="row">
+		<div class="col-cm-12">
+			<h6 class="ctrlTest">GetCtrl : {{getCtrl.test}}</h6>
+		</div>
+	</div>
+	<div class="row form-group" id="getTable">
+		<div class="col-sm-12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Label</th>
+						<th>Author</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="note in getCtrl.notes">
+						<td ng-bind="note.label"></td>
+						<td ng-bind="note.author"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<button type="button" class="btn btn-primary btn-block" ng-click="getCtrl.getNotes()">Get Notes</button>
+		</div>
+	</div>
+</div>

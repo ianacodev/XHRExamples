@@ -1,0 +1,57 @@
+.ctrlTest {
+	color: blue;
+}
+
+#mainDisplayPanel {
+	padding: 20px;
+	height: 600px;
+	border: 3px solid black;
+	border-radius: 10px;
+}
+
+#leftDisplayPanel {
+	padding: 20 px;
+	border: 3px solid black;
+	border-radius: 10px;
+	height: 550px;
+}
+
+
+.displayHeading {
+	text-align: center;
+	border-bottom: 1px solid lightgrey;
+}
+
+.errorMsg {
+	color: red;
+}
+
+.errorBorder {
+	border: 1px solid red;
+}
+
+#postContainer {
+	postion: relative;
+}
+
+#addNotePanel {
+	
+}
+
+#getTable, #postTable {
+	height: 180px;
+	overflow: auto;
+}
+
+.iconSuccess {
+	padding-top: 80%;
+	color: green;
+}
+
+.iconFail {
+	padding-top: 80%;
+	color: red;
+}
+	
+
+

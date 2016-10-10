@@ -1,0 +1,20 @@
+<div class="container-fluid" ng-controller="XHRGenericContrller as genCtrl">
+	<div class="row">
+		<div class="col-sm-12">
+			<h6 class="ctrlTest">GenCtrl : {{genCtrl.test}}</h6>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<button type="button" class="btn btn-primary btn-block" ng-click="genCtrl.runTest()">Run Test</button>
+		</div>
+		<div class="col-sm-8">
+			<div class="text-center" style="padding: 5px; color: white; background-color: green;" ng-show="genCtrl.xhrResponse">
+				<span>Success Response</span>
+			</div>
+			<div class="text-center" style="padding: 5px; color: white; background-color: red;" ng-hide="genCtrl.xhrResponse">
+				<span>Failed Response</span>
+			</div>
+		</div>
+	</div>
+</div>

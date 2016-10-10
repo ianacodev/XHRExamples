@@ -1,0 +1,95 @@
+<div class="container-fluid" ng-controller="XHRPostController as postCtrl" id="postContainer">
+	<div class="row">
+		<div class="col-sm-12">
+			<h6 class="ctrlTest">PostCtrl : {{postCtrl.test}}</h6>
+		</div>
+	</div>
+	<div class="row form-group" id="postTable">
+		<div class="col-sm-12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Label</th>
+						<th>Author</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="note in postCtrl.notes">
+						<td ng-bind="note.label"></td>
+						<td ng-bind="note.author"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="row displayHeading form-group">
+		<div class="col-sm-12">
+			<h3>Add Note</h3>
+		</div>
+	</div>
+	<div class="row" id="addNotePanel">
+		<div class="col-sm-12">
+			<form novalidate name="newNoteForm" ng-submit="postCtrl.submitNoteForm(newNoteForm)">
+				<div class="row form-group">
+					<div class="col-sm-4">
+						<h5><b>Label: </b></h5>
+					</div>
+					<div class="col-sm-8">
+						<div class="row">
+							<div class="col-sm-12">
+								<input type="text" 
+									   class="form-control" 
+									   name="label" 
+									   ng-model="postCtrl.newNote.label" 
+									   placeholder="--label--" 
+									   ng-class="{errorBorder: newNoteForm.$invalid && newNoteForm.$submitted}"
+									   ng-required="true" 
+									   ng-minlength="2"/>
+							</div>
+						</div>
+						<div class="row errorMsg" ng-show="newNoteForm.$invalid && newNoteForm.$submitted">
+							<div class="col-sm-12" ng-if="newNoteForm.label.$error.required">
+								<span>Please enter a label.</span>
+							</div>
+							<div class="col-sm-12" ng-if="newNoteForm.label.$error.minlength">
+								<span>Must be at least 2 characters long.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-4">
+						<h5><b>Author: </b></h5>
+					</div>
+					<div class="col-sm-8">
+						<div class="row">
+							<div class="col-sm-12">
+								<input type="text"
+									   class="form-control"
+									   name="author"
+									   ng-model="postCtrl.newNote.author"
+									   placeholder="--author--"
+									   ng-class="{errorBorder: newNoteForm.$submitted && newNoteForm.$invalid}"
+									   ng-required="true"
+									   ng-minlength="2"/>
+							</div>
+						</div>
+						<div class="row errorMsg" ng-show="newNoteForm.$submitted && newNoteForm.$invalid">
+							<div class="col-sm-12" ng-if="newNoteForm.author.$error.required">
+								<span>Please enter an author.</span>
+							</div>
+							<div class="col-sm-12" ng-if="newNoteForm.author.$error.minlength">
+								<span>Must be at least 2 characters long.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<input type="submit" class="btn btn-primary btn-block" value="Add Note"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

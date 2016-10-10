@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="xhrExamples">
+	<head>
+		<title>XHR Examples</title>
+		<meta charset="UTF-8"/>
+		<!-- Angular -->
+		<script type="text/javascript" src="resources/angular.min.js"></script>
+		<!-- Core JS-->
+		<script type="text/javascript" src="js/modules.js"></script>
+		<!-- Controllers -->
+		<script type="text/javascript" src="js/controllers/indexController.js"></script>
+		<script type="text/javascript" src="js/controllers/xhrGenericController.js"></script>
+		<script type="text/javascript" src="js/controllers/xhrGetController.js"></script>
+		<script type="text/javascript" src="js/controllers/xhrPostController.js"></script>
+		<script type="text/javascript" src="js/controllers/promiseChainController.js"></script>
+		<script type="text/javascript" src="js/controllers/deferController.js"></script>
+		<script type="text/javascript" src="js/controllers/httpDefaultsController.js"></script>
+		<script type="text/javascript" src="js/controllers/interceptorController.js"></script>
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="resources/bootstrap.min.css"/>
+		<script type="text/javascript" src="resources/bootstrap.min.js"></script>
+		<!-- CSS -->
+		<link type="text/css" rel="stylesheet" href="css/style.css"/> 
+		<!-- Font Awesome -->
+		<link type="text/css" rel="stylesheet" href="resources/font-awesome.min.css"/>
+	</head>
+	<body ng-controller="IndexController as indxCtrl">
+		<div class="container">
+			<div class="row"> <!-- Test Begin -->
+				<div class="col-sm-12">
+					<h6><b class="ctrlTest">IndxCtrl : {{indxCtrl.test}}</b></h6>
+				</div>
+			</div> <!-- Test End -->
+			<div class="row" id="mainDisplayPanel"> <!-- Display Panel Begin -->
+				<div class="col-sm-12">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6" id="leftDisplayPanel"> <!-- Left Panel Begin -->
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="row"> <!-- Generic Header Begin-->
+											<div class="col-sm-12">
+												<div class="displayHeading">
+													<h3 ng-bind="indxCtrl.displayPage.header"></h3>
+												</div>
+											</div>
+										</div> <!-- Generic Header End -->
+										<div class="row">
+											<div class="col-sm-12">
+												<div ng-include="'partials/' + indxCtrl.displayPage.href"></div>
+											</div>
+										</div>
+									</div>
+								</div> <!-- Left Panel End -->
+							</div> 
+							<div class="col-sm-6" id="rightDisplayPanel"> <!-- Right Panel Begin -->
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="container-fluid">
+											<div class="row form-group">
+												<div class="heading">
+													<div class="displayHeading">
+														<h3>XHR Examples</h3>
+													</div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-12">
+													<form novalidate name="xhrExampleForm" ng-submit="indxCtrl.submitExampleForm(xhrExampleForm)">
+														<div class="row form-group">
+															<div class="col-sm-12">
+																<div class="row">
+																	<div class="col-sm-4">
+																		<h5><b>Select Example: </b></h5>	
+																	</div>
+																	<div class="col-sm-8">
+																		<select class="form-control" 
+																				name="example" 
+																				ng-model="indxCtrl.selectedXHRExample" 
+																				ng-options="example.label for example in indxCtrl.xhrExamples" 
+																				ng-required="true"
+																				ng-class="{errorBorder: xhrExampleForm.$submitted && xhrExampleForm.example.$error.required}">
+																			<option value="" ng-disabled="true">--select example--</option>
+																		</select>
+																	</div>
+																</div>
+																<div class="row errorMsg" ng-if="xhrExampleForm.$submitted && xhrExampleForm.example.$error.required">
+																	<div class="col-sm-8 col-sm-offset-4">
+																		<span>Please select an example.</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row" id="runExampleBtnContainer">
+															<div class="col-sm-12">
+																<input type="submit" class="btn btn-primary btn-block" value="Run Example"/>
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> <!-- Right Panel End-->
+						</div>
+					</div>
+				</div>
+			</div> <!-- Display Panel End -->
+		</div>
+	</body>
+</html>

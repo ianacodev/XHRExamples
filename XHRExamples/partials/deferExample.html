@@ -1,0 +1,56 @@
+<div class="container-fluid" ng-controller="DeferController as deferCtrl">
+	<div class="row">
+		<div class="col-sm-12">
+			<h6 class="ctrlTest">DeferCtrl : {{deferCtrl.test}}</h6>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="col-sm-12">
+			<h5><b style="color: red">Word < 3 Chars : Reject</b></h5>
+			<h5><b style="color: green">Word > 3 Chars : Resolve</b></h5>
+		</div>
+	</div>
+	<div class="row form-group">
+		<div class="col-sm-12">
+			<form novalidate name="wordForm" ng-submit="deferCtrl.submitWordForm(wordForm)">
+				<div class="row form-group">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-4">
+								<h5><b>Enter Word: </b></h5>
+							</div>
+							<div class="col-sm-8">
+								<input type="text"
+									   class="form-control"
+									   name="word"
+									   ng-model="deferCtrl.word"
+									   ng-class="{errorBorder: wordForm.$invalid && wordForm.$submitted}"
+									   placeholder="--word--"
+									   ng-required = "true"
+									   />
+							</div>
+						</div>
+						<div class="row errorMsg form-group" ng-show="wordForm.$invalid && wordForm.$submitted">
+							<div class="col-sm-8 col-sm-offset-4">
+								<span>Please enter a word.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<input type="submit" class="btn btn-primary btn-block" value="Run Test"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12 text-center" ng-hide="deferCtrl.success || !(wordForm.$submitted && wordForm.$valid)">
+			<h3 style="color: red"><b>Failure Response</b></h3>
+		</div>
+		<div class="col-sm-12 text-center" ng-show="deferCtrl.success && (wordForm.$submitted && wordForm.$valid)">
+			<h3 style="color: green"><b>Success Response</b></h3>
+		</div>
+	</div>
+</div>
